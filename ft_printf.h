@@ -18,7 +18,7 @@
 # include "../libft/libft.h"
 
 int		ft_printf(const char *format, ...);
-int		ft_putchar(int c);
+int		ft_putchar(unsigned char c);
 int		ft_putstr(char *s);
 int		ft_puthex(unsigned long num, int is_upper);
 int		ft_putptr(void *p);
