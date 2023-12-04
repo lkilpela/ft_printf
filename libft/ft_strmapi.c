@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 11:55:10 by lkilpela          #+#    #+#             */
-/*   Updated: 2023/12/04 16:30:15 by lkilpela         ###   ########.fr       */
+/*   Created: 2023/11/14 10:49:51 by lkilpela          #+#    #+#             */
+/*   Updated: 2023/11/14 11:18:35 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include "../libft/libft.h"
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	unsigned int	i;
+	char			*str;
+	unsigned int	str_len;
 
-int		ft_printf(const char *format, ...);
-int		ft_putchar(int c);
-int		ft_putstr(char *s);
-int		ft_puthex(unsigned long num, int is_upper);
-int		ft_putptr(void *p);
-int		ft_putnbr(int n);
-int		ft_putunbr(unsigned int n);
-long	ft_putnbr_hex(long n, int is_upper);
-int		ft_putpercent(void);
-
-#endif
+	if (s == NULL || f == NULL)
+		return (NULL);
+	str_len = ft_strlen(s);
+	str = (char *)malloc(sizeof(char) * (str_len + 1));
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i] != '\0')
+	{
+		str[i] = f(i, s[i]);
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}
