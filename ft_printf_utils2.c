@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:49:55 by lkilpela          #+#    #+#             */
-/*   Updated: 2023/12/04 15:06:20 by lkilpela         ###   ########.fr       */
+/*   Updated: 2023/12/04 15:09:15 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int	ft_putptr(void *p)
 {
 	if (write(1, "0x", 2) == -1)
 		return (-1);
-	ft_puthex((unsigned long)p, 0);
+	if (ft_puthex((unsigned long)p, 0) == -1)
+		return (-1);
 	return (1);
 }
 

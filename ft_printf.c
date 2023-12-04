@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 12:58:32 by lkilpela          #+#    #+#             */
-/*   Updated: 2023/12/04 15:05:32 by lkilpela         ###   ########.fr       */
+/*   Updated: 2023/12/04 16:11:26 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	ft_printf(const char *format, ...)
 		}
 		else
 		{
-			if (write(1, &format[i], 1) == -1)
+			if (ft_putchar(format[i]) == -1)
 				return (-1);
 			count++;
 		}

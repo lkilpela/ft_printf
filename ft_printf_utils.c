@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 13:35:46 by lkilpela          #+#    #+#             */
-/*   Updated: 2023/12/04 15:07:07 by lkilpela         ###   ########.fr       */
+/*   Updated: 2023/12/04 15:22:06 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,20 @@ int	ft_putstr(char *s)
 
 	i = 0;
 	if (s == NULL)
-		write(1, "(null)", 6);
-	while (s[i])
 	{
-		if (write(1, &s[i], 1) == -1)
+		if (write(1, "(null)", 6) == -1)
 			return (-1);
-		i++;
 	}
-	return (1);
+	else
+	{ 
+		while (s[i])
+		{
+			if (write(1, &s[i], 1) == -1)
+				return (-1);
+			i++;
+		}
+	}
+	return (0);
 }
 
 //decimal && integer
