@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 13:35:46 by lkilpela          #+#    #+#             */
-/*   Updated: 2023/12/04 16:35:06 by lkilpela         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:23:36 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 //character
 int	ft_putchar(int c)
 {
-	if (write(1, &c, 1) == -1)
+	int	len;
+
+	len = write(1, &c, 1);
+	if (len == -1)
 		return (-1);
-	return (1);
+	return (len);
 }
 
 //string
@@ -102,7 +105,10 @@ int	ft_putunbr(unsigned int n)
 
 int	ft_putpercent(void)
 {
-	if (write(1, "%", 1) == -1)
+	int	len;
+
+	len = write(1, "%", 1);
+	if (len == -1)
 		return (-1);
-	return (1);
+	return (len);
 }
