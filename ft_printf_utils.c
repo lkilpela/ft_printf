@@ -13,14 +13,9 @@
 #include "ft_printf.h"
 
 //character
-int	ft_putchar(int c)
+int	ft_putchar(unsigned char c)
 {
-	int	len;
-
-	len = write(1, &c, 1);
-	if (len == -1)
-		return (-1);
-	return (len);
+	return write(1, &c, 1);	
 }
 
 //string
