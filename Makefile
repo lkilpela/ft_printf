@@ -1,7 +1,7 @@
 CCFLAGS = -Wall -Wextra -Werror -g
 NAME = libftprintf.a
 
-SRCS = ft_printf.c	
+SRCS = ft_printf.c	ft_printf_utils.c	ft_printf_utils2.c
 
 HDRS = ft_printf.h
 OBJS = $(SRCS:%.c=%.o)
