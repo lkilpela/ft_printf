@@ -6,14 +6,14 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 13:35:46 by lkilpela          #+#    #+#             */
-/*   Updated: 2023/12/01 15:10:07 by lkilpela         ###   ########.fr       */
+/*   Updated: 2023/12/04 14:41:06 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 //character
-int	handle_char(int c)
+int	ft_putchar(int c)
 {
 	if (write(1, &c, 1) == -1)
 		return (-1);
@@ -21,21 +21,24 @@ int	handle_char(int c)
 }
 
 //string
-int	handle_string(char *s)
+int	ft_putstr(char *s)
 {
+	int	i;
+
+	i = 0;
 	if (s == NULL)
-		return (-1);
-	while (*s != '\0')
+		write(1, "(null)", 6);
+	while (s[i])
 	{
-		if (write(1, s, 1) == -1)
+		if (write(1, &s[i], 1) == -1)
 			return (-1);
-		s++;
+		i++;
 	}
 	return (1);
-		s++;
 }
+
 //print hexadecimal
-void	print_hex(unsigned long num, int is_upper)
+int	ft_puthex(unsigned long num, int is_upper)
 {
 	char	*hex;
 
@@ -44,84 +47,86 @@ void	print_hex(unsigned long num, int is_upper)
 	else
 		hex = "0123456789abcdef";
 	if (num >= 16)
-		print_hex(num / 16, is_upper);
+		ft_puthex(num / 16, is_upper);
 	if (write(1, hex[num % 16], 1) == -1)
 		return (-1);
 	return (1);
 }
-// pointer
-int	handle_pointer(void *p)
+// pointer - ft_puthex is always called, even if p is null. ft_puthex will 
+// print 0 for a null pointer, which is the correct representation.
+int	ft_putptr(void *p)
 {
 	if (write(1, "0x", 2) == -1)
 		return (-1);
-	if (write(1, p, 1) == -1)
-		return (-1);
+	ft_puthex((unsigned long)p, 0);
 	return (1);
-	print_hex((unsigned long)p, 0);
 }
 
 //decimal && integer
-int	handle_number(int n)
+int	ft_putnbr(int n)
 {
 	char	c;
 	
-	c = 0;
 	if (n == -2147483648)
 	{
-		write(1, "-2147483648", 11);
+		if (write(1, "-2147483648", 11) == -1)
+			return (-1);
 	}
-	else if (n < 0)
+	if (n < 0)
 	{
-		write(1, "-", 1);
-		handle_number(-n);
+		if (write(1, "-", 1) == -1)
+			return (-1);
+		n = -n;
 	}
-	else if (n >= 10)
+	if (n >= 10)
 	{
-		handle_number(n / 10);
-		handle_number(n % 10);
+		if (ft_putnbr(n / 10) == -1)
+			return (-1);
 	}
-	else
-	{
-		c = n + '0';
-		write(1, &c, 1);
-	}
-	return (c);
+	c = n % 10 + '0';
+	if (write(1, &c, 1) == -1)
+		return (-1);
+	return (1);
 }
 
 //unsigned integer
-int	handle_unsigned(unsigned int n)
+int	ft_putunbr(unsigned int n)
 {
 	char	c;
 	
 	if (n >= 10)
 	{
-		handle_unsigned(n / 10);
-		handle_unsigned(n % 10);
+		if (ft_putunbr(n / 10) == -1)
+			return (-1);
 	}
-	else
-	{
-		c = n + '0';
-		write(1, &c, 1);
-	}
+	c = n % 10 + '0';
+	if (write(1, &c, 1) == -1)
+		return (-1);
 	return (1);
 }
 
-//hexadecimal upper
-
-long handle_hex_upper(long n)
+//hexadecimal upper & lower
+long ft_putnbr_hex(long n, int is_upper)
 {
 	char	c;
 	
-
+	c = 0;
 	if (n >= 16)
 	{
-		handle_hex_upper(n / 16);
-		handle_hex_upper(n % 16);
+		if (ft_putnbr_hex(n / 16, is_upper) == -1)
+			return (-1);
 	}
+	n = n % 16;
+	if (n < 10)
+		c = n + '0';
 	else
 	{
-		c = n + '0';
-		write(1, &c, 1);
+		if (is_upper == 1)
+			c = n + 'A' - 10;
+		else
+			c = n + 'a' - 10;
 	}
+	if (write (1, &c, 1) == -1)
+		return (-1);
 	return (1);
 }
