@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 13:35:46 by lkilpela          #+#    #+#             */
-/*   Updated: 2023/12/05 11:26:37 by lkilpela         ###   ########.fr       */
+/*   Updated: 2023/12/05 12:52:55 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,12 @@
 //character
 int	ft_putchar(unsigned char c)
 {
-	return (write(1, &c, 1));
+	int	len;
+
+	len = write(1, &c, 1);
+	if (len == -1)
+		return (-1);
+	return (len);
 }
 
 //string
@@ -56,27 +61,6 @@ int	ft_putnbr(int n)
 	free(c);
 	return (len);
 }
-	/*if (n == -2147483648)
-	{
-		if (write(1, "-2147483648", 11) == -1)
-			return (-1);
-	}
-	if (n < 0)
-	{
-		if (write(1, "-", 1) == -1)
-			return (-1);
-		n = -n;
-	}
-	if (n >= 10)
-	{
-		if (ft_putnbr(n / 10) == -1)
-			return (-1);
-	}
-	c = n % 10 + '0';
-	if (write(1, &c, 1) == -1)
-		return (-1);
-
-	return (i);*/
 
 //unsigned integer
 int	ft_putunbr(unsigned int n)
