@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 12:58:32 by lkilpela          #+#    #+#             */
-/*   Updated: 2023/12/05 14:46:28 by lkilpela         ###   ########.fr       */
+/*   Updated: 2023/12/05 14:57:46 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ int	ft_parse(const char *format, va_list ap)
 	else if (*format == 'u')
 		count += ft_putunbr(va_arg(ap, unsigned int));
 	else if (*format == 'x')
-		count = ft_putnbr_hex(va_arg(ap, unsigned int), 0);
+		count = ft_puthex(va_arg(ap, unsigned int), 0);
 	else if (*format == 'X')
-		count = ft_putnbr_hex(va_arg(ap, unsigned int), 1);
+		count = ft_puthex(va_arg(ap, unsigned int), 1);
 	else if (*format == 'p')
 		count = ft_putptr(va_arg(ap, void *));
 	else if (*format == '%')

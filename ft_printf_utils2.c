@@ -6,13 +6,13 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:49:55 by lkilpela          #+#    #+#             */
-/*   Updated: 2023/12/05 11:37:19 by lkilpela         ###   ########.fr       */
+/*   Updated: 2023/12/05 14:59:17 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 //print hexadecimals
-int	ft_puthex(unsigned long num, int is_upper)
+long	ft_puthex(unsigned long num, int is_upper)
 {
 	char	*hex;
 	int		len;
@@ -59,34 +59,4 @@ int	ft_putptr(void *p)
 		len += hex_len;
 	}
 	return (len);
-}
-
-// hexadecimal upper & lower
-long	ft_putnbr_hex(long n, int is_upper)
-{
-	char	c;
-	int		len;
-
-	c = 0;
-	if (n >= 16)
-	{
-		len = ft_putnbr_hex(n / 16, is_upper);
-		if (len == -1)
-			return (-1);
-	}
-	else
-		len = 0;
-	n = n % 16;
-	if (n < 10)
-		c = n + '0';
-	else
-	{
-		if (is_upper == 1)
-			c = n + 'A' - 10;
-		else
-			c = n + 'a' - 10;
-	}
-	if (write(1, &c, 1) == -1)
-		return (-1);
-	return (len + 1);
 }
