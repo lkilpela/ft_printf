@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 13:35:46 by lkilpela          #+#    #+#             */
-/*   Updated: 2023/12/05 11:15:16 by lkilpela         ###   ########.fr       */
+/*   Updated: 2023/12/05 11:26:37 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //character
 int	ft_putchar(unsigned char c)
 {
-	return (write(1, &c, 1));	
+	return (write(1, &c, 1));
 }
 
 //string

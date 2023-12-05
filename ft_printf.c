@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 12:58:32 by lkilpela          #+#    #+#             */
-/*   Updated: 2023/12/05 11:18:00 by lkilpela         ###   ########.fr       */
+/*   Updated: 2023/12/05 11:49:01 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,9 @@ int	ft_printf(const char *format, ...)
 	va_start(ap, format);
 	while (format[i])
 	{
-		if (format[i] == '%')
-		{
-			i++;
-			temp = ft_parse(format, &i, ap);
-			if (temp == -1)
-				return (-1);
+		 if (format[i] == '%' && (temp = ft_parse(format, &++i, ap)) != -1)
 			count += temp;
-		}
-		if (ft_putchar(format[i]) == -1)
-				return (-1);
+		else if (format[i] != '%' && ft_putchar(format[i++]) != -1)
 			count++;
 		i++;
 	}
