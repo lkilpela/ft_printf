@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 12:58:32 by lkilpela          #+#    #+#             */
-/*   Updated: 2023/12/05 12:36:08 by lkilpela         ###   ########.fr       */
+/*   Updated: 2023/12/05 14:46:28 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			temp = ft_parse((++format), ap);
-			if (count == -1)
+			if (temp == -1)
 				return (-1);
 			count += temp;
 		}
