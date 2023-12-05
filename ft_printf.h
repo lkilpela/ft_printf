@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 11:55:10 by lkilpela          #+#    #+#             */
-/*   Updated: 2023/12/04 16:30:15 by lkilpela         ###   ########.fr       */
+/*   Updated: 2023/12/05 11:15:24 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@ int		ft_putptr(void *p);
 int		ft_putnbr(int n);
 int		ft_putunbr(unsigned int n);
 long	ft_putnbr_hex(long n, int is_upper);
-int		ft_putpercent(void);
 
 #endif

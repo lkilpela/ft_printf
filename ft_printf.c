@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 12:58:32 by lkilpela          #+#    #+#             */
-/*   Updated: 2023/12/04 16:11:26 by lkilpela         ###   ########.fr       */
+/*   Updated: 2023/12/05 11:18:00 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,21 @@ int	ft_parse(const char *format, int *i, va_list ap)
 
 	count = 0;
 	if (format[*i] == 'c')
-		count += ft_putchar(va_arg(ap, int));
+		count = ft_putchar(va_arg(ap, int));
 	else if (format[*i] == 's')
-		count += ft_putstr(va_arg(ap, char *));
+		count = ft_putstr(va_arg(ap, char *));
 	else if (format[*i] == 'd' || format[*i] == 'i')
-		count += ft_putnbr(va_arg(ap, int));
+		count = ft_putnbr(va_arg(ap, int));
 	else if (format[*i] == 'u')
 		count += ft_putunbr(va_arg(ap, unsigned int));
 	else if (format[*i] == 'x')
-		count += ft_putnbr_hex(va_arg(ap, unsigned int), 0);
+		count = ft_putnbr_hex(va_arg(ap, unsigned int), 0);
 	else if (format[*i] == 'X')
-		count += ft_putnbr_hex(va_arg(ap, unsigned int), 1);
+		count = ft_putnbr_hex(va_arg(ap, unsigned int), 1);
 	else if (format[*i] == 'p')
-		count += ft_putptr(va_arg(ap, void *));
+		count = ft_putptr(va_arg(ap, void *));
 	else if (format[*i] == '%')
-		count += ft_putpercent();
+		count = ft_putchar('%');
 	return (count);
 }
 
@@ -41,6 +41,7 @@ int	ft_printf(const char *format, ...)
 	va_list	ap;
 	int		i;
 	int		count;
+	int		temp;
 
 	i = 0;
 	count = 0;
@@ -50,14 +51,14 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			count += ft_parse(format, &i, ap);
+			temp = ft_parse(format, &i, ap);
+			if (temp == -1)
+				return (-1);
+			count += temp;
 		}
-		else
-		{
-			if (ft_putchar(format[i]) == -1)
+		if (ft_putchar(format[i]) == -1)
 				return (-1);
 			count++;
-		}
 		i++;
 	}
 	va_end(ap);
