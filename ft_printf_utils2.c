@@ -6,13 +6,13 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:49:55 by lkilpela          #+#    #+#             */
-/*   Updated: 2023/12/07 10:00:20 by lkilpela         ###   ########.fr       */
+/*   Updated: 2023/12/07 10:31:47 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 //print hexadecimals
-long	ft_puthex(unsigned long num, int is_upper)
+int	ft_puthex(unsigned long num, int is_upper)
 {
 	char	*hex;
 	int		len;
