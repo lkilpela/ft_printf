@@ -6,7 +6,7 @@
 /*   By: lkilpela <lkilpela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 14:49:55 by lkilpela          #+#    #+#             */
-/*   Updated: 2023/12/05 14:59:17 by lkilpela         ###   ########.fr       */
+/*   Updated: 2023/12/07 10:00:20 by lkilpela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ long	ft_puthex(unsigned long num, int is_upper)
 	return (len + 1);
 }
 
-// pointer - ft_puthex is always called, even if p is null. ft_puthex will 
-// print 0 for a null pointer, which is the correct representation.
+// pointer
 int	ft_putptr(void *p)
 {
 	int	len;
