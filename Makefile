@@ -1,4 +1,4 @@
-CCFLAGS = -Wall -Wextra -Werror -g
+CCFLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
 
 SRCS = ft_printf.c	ft_printf_utils.c	ft_printf_utils2.c
