@@ -37,7 +37,7 @@ This project was completed as a **solo project**.
 2. Navigate into the project directory: `cd ft_printf`
 3. Compile the project: `make`
 
-## Usage
+## 🚀 Usage
 
 After compiling the project, you can use the `ft_printf` function in the same way you would use the standard `printf` function.
 
