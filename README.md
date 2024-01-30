@@ -53,27 +53,25 @@ int main(void)
 
 ## 📝 Evaluation Requirements
 
-The `libft` project was evaluated based on the following criteria:
+The `ft_printf` project was evaluated based on the following criteria:
 
-1. **Code Quality**: The code must be clear, concise, and efficient. It should be well-organized and easy to read.
+1. **Code Quality**: The code must be clear, concise, and efficient. It should be well-organized and easy to read. The use of global variables is forbidden and the project must conform to the school's norminette rules.
 
-2. **Functionality**: All functions must work correctly and handle edge cases. The library should not have any memory leaks.
+2. **Functionality**: The `ft_printf` function must work correctly and handle all format specifiers and flags of the real `printf`. The library should not have any memory leaks.
 
-3. **Compiling**: The library must compile without any errors or warnings.
+3. **Compiling**: The library must compile without any errors or warnings. The project should compile with the `-Wall -Wextra -Werror` flags.
 
-4. **Makefile**: The project should include a Makefile that compiles the library and includes rules like `all`, `clean`, `fclean`, and `re`.
-
-5. **Bonus**: Bonus points were awarded for additional functions that are useful for the rest of the program.
+4. **Makefile**: The project should include a Makefile that compiles the library and includes rules like `all`, `clean`, `fclean`, and `re`. The Makefile should recompile only the necessary files when a change is made.
 
 ### 🧑‍💻 Peer Evaluations (3/3)
 
 Here are some of the comments received during the peer evaluation of the `libft` project:
 
-> **Peer 1**: "Very good work Lumi! We talked a lot of her code and we made tests and all worked well. Code is easy to read and all solutions were very nice and easy to understand. Good luck to next evaluation!"
+> **Peer 1**: "Lumi did a great work with her printf. All her functions are smart and efficient, her code is very clean and well organized. She also showed a good understanding of subject. Well done and good luck with evaluations :)"
 
-> **Peer 2**: "Lumi did outstanding work on the project and is very knowledgable about all of the code we checked together. She was easily able to describe how her code works, and dissect the different portions down to the correct type of return values to be outputted. I learned a bit more about NULL , and when and where to use it! Keep up the great work."
+> **Peer 2**: "Lumi had nice and clean printf implementation. We ran some tests and went trough the code, everything worked perfectly and there were no norm errors or other issues. Once again it was interesting to see different ways to implement the conversions. Nice job Lumi! Good luck for the last evaluation!"
 
-> **Peer 3**: "Lumi's code is extremely elegant, more readable than most I've seen so far. I feel I learnt a lot from seeing her syntax. Code all works and passes the norm, good luck with the rest of the evaluations!"
+> **Peer 3**: "Lumi did a great job! We went tru function, it was written very clear and easy to read. Lumi was able to explain all her functions very well. Was happy t meet you, and keep coding! "
 
 ## 📜 License
 
