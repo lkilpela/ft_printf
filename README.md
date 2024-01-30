@@ -49,7 +49,7 @@ int main(void)
     ft_printf("Hello, %s!", "world");
     return (0);
 }
-```c
+```
 
 ## 📝 Evaluation Requirements
 
