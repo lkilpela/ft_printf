@@ -21,7 +21,7 @@
 
 ## 🖨️ About The Project
 
-`ft_printf` is a custom implementation of the standard C library function `printf`. This project is part of the Hive Helsinki curriculum..
+`ft_printf` is a custom implementation of the standard C library function `printf`. This project is part of the Hive Helsinki curriculum.
 
 The `printf` function is a common standard library function used in C for formatted output. The goal of this project is to recreate `printf` function to gain a deeper understanding of data types, variadic functions, and string manipulation in C.
 
@@ -49,6 +49,7 @@ int main(void)
     ft_printf("Hello, %s!", "world");
     return (0);
 }
+```c
 
 ## 📝 Evaluation Requirements
 
