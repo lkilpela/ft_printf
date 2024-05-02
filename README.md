@@ -1,5 +1,5 @@
 <h1 align="center">
-	🖨️  FT_PRINTF
+	<img src="https://github.com/lkilpela/42-project-badges/blob/main/badges/ft_printfe.png">
 </h1>
 
 <p align="center">
